@@ -647,10 +647,6 @@ const _inlineRuntimeConfig = {
         }
       }
     }
-  },
-  "public": {
-    "supabaseUrl": "https://piuupivvpapyaiafgzga.supabase.co",
-    "supabaseAnonKey": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBpdXVwaXZ2cGFweWFpYWZnemdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY0MDU0MTIsImV4cCI6MjA5MTk4MTQxMn0.sZKGVDk08VYzrgDy2vcmu5aI-tNAolJU9F_F9vQwmzI"
   }};
 const envOptions = {
   prefix: "NITRO_",
