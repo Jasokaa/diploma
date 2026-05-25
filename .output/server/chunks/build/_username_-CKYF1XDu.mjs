@@ -1,0 +1,214 @@
+import { _ as __nuxt_component_0 } from './nuxt-link-B1pdB3FY.mjs';
+import { defineComponent, ref, computed, watch, mergeProps, unref, withCtx, createTextVNode, toDisplayString, useSSRContext } from 'vue';
+import { ssrRenderAttrs, ssrInterpolate, ssrRenderAttr, ssrRenderList, ssrRenderComponent, ssrIncludeBooleanAttr, ssrLooseEqual } from 'vue/server-renderer';
+import { f as formatWishlistVisibility, a as formatParticipantJoinMode, s as splitWishlistTitle } from './helpers-BT2bhxkr.mjs';
+import { _ as _export_sfc, b as useRoute, a as useRouter } from './server.mjs';
+import { u as useAuth } from './useAuth-D55glZy3.mjs';
+import { u as useWishlists } from './useWishlists-DPZKeTte.mjs';
+import { u as useProfile } from './useProfile-DiW2onUU.mjs';
+import { u as useFriends } from './useFriends-6-ja2yAP.mjs';
+import '../nitro/nitro.mjs';
+import 'node:http';
+import 'node:https';
+import 'node:events';
+import 'node:buffer';
+import 'node:fs';
+import 'node:path';
+import 'node:crypto';
+import 'node:url';
+import '../routes/renderer.mjs';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'devalue';
+import 'unhead/utils';
+import 'vue-router';
+import './state-DQnwRar-.mjs';
+
+const defaultProfileAvatar = "/images/avatars/avatar-standart.png";
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "[username]",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const route = useRoute();
+    useRouter();
+    const statusMessage = ref("");
+    const userProfile = ref(null);
+    const profileWishlists = ref([]);
+    const wishlistParticipationById = ref({});
+    const isOwnProfile = ref(false);
+    const following = ref(false);
+    const showProfileModal = ref(false);
+    const profileStatusMessage = ref("");
+    ref("");
+    const avatarOptions = [
+      { id: "avatar-1", label: "Avatar 1", image: "/images/avatars/avatar-1.png" },
+      { id: "avatar-2", label: "Avatar 2", image: "/images/avatars/avatar-2.png" },
+      { id: "avatar-3", label: "Avatar 3", image: "/images/avatars/avatar-3.png" },
+      { id: "avatar-4", label: "Avatar 4", image: "/images/avatars/avatar-4.png" },
+      { id: "avatar-5", label: "Avatar 5", image: "/images/avatars/avatar-5.png" },
+      { id: "avatar-6", label: "Avatar 6", image: "/images/avatars/avatar-6.png" },
+      { id: "avatar-7", label: "Avatar 7", image: "/images/avatars/avatar-7.png" },
+      { id: "avatar-8", label: "Avatar 8", image: "/images/avatars/avatar-8.png" }
+    ];
+    const email = ref("");
+    const fullName = ref("");
+    const username = ref("");
+    const birthDate = ref("");
+    const avatarUrl = ref("");
+    useAuth();
+    useWishlists();
+    useProfile();
+    useFriends();
+    const displayedAvatar = computed(() => {
+      return userProfile.value?.avatar_url || defaultProfileAvatar;
+    });
+    const modalAvatarPreview = computed(() => {
+      return avatarUrl.value || defaultProfileAvatar;
+    });
+    const contactHref = computed(() => {
+      if (!userProfile.value?.email || isOwnProfile.value) {
+        return "";
+      }
+      const subject = encodeURIComponent(`gifttt | Contact for @${userProfile.value.username}`);
+      return `mailto:${userProfile.value.email}?subject=${subject}`;
+    });
+    const getWishlistTitleParts = (title) => {
+      return splitWishlistTitle(title);
+    };
+    const loadFriendProfilePage = async () => {
+      {
+        return;
+      }
+    };
+    const getWishlistParticipation = (wishlistId) => {
+      return wishlistParticipationById.value[wishlistId] || null;
+    };
+    const canOpenWishlist = (wishlistId) => {
+      return Boolean(getWishlistParticipation(wishlistId));
+    };
+    const wishlistAccessLabel = (wishlist) => {
+      const participation = getWishlistParticipation(wishlist.id);
+      if (participation?.status === "approved") {
+        return "You already joined this wishlist.";
+      }
+      if (participation?.status === "invited") {
+        return "You were invited to this wishlist.";
+      }
+      if (participation?.status === "pending") {
+        return "Your access request is waiting for approval.";
+      }
+      if (participation?.status === "rejected") {
+        return "Your previous request was rejected.";
+      }
+      if (wishlist.participantJoinMode === "invite_only") {
+        return "This wishlist is available by invitation only.";
+      }
+      return wishlist.participantJoinMode === "open" ? "You can join this wishlist right away." : "You can send an access request to the wishlist owner.";
+    };
+    const wishlistActionLabel = (wishlist) => {
+      const participation = getWishlistParticipation(wishlist.id);
+      if (participation?.status === "invited") {
+        return "Accept invitation";
+      }
+      return wishlist.participantJoinMode === "open" ? "Join wishlist" : "Request access";
+    };
+    watch(() => route.fullPath, () => {
+      loadFriendProfilePage();
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLink = __nuxt_component_0;
+      _push(`<section${ssrRenderAttrs(mergeProps({ class: "page-section user-profile-page" }, _attrs))} data-v-6430419b>`);
+      if (unref(userProfile)) {
+        _push(`<div class="surface-card" data-v-6430419b><div class="user-profile-page__hero" data-v-6430419b><div class="user-profile-page__hero-copy" data-v-6430419b><h1 data-v-6430419b>${ssrInterpolate(unref(userProfile).full_name)}</h1><img${ssrRenderAttr("src", unref(displayedAvatar))} alt="User avatar" class="user-profile-page__avatar" data-v-6430419b><p data-v-6430419b><strong data-v-6430419b>Username:</strong> @${ssrInterpolate(unref(userProfile).username)}</p><p data-v-6430419b><strong data-v-6430419b>Date of birth:</strong> ${ssrInterpolate(unref(userProfile).birth_date)}</p></div>`);
+        if (!unref(isOwnProfile)) {
+          _push(`<div class="user-profile-page__hero-actions" data-v-6430419b><button type="button" data-v-6430419b>${ssrInterpolate(unref(following) ? "Unfollow" : "Follow")}</button>`);
+          if (unref(contactHref)) {
+            _push(`<a${ssrRenderAttr("href", unref(contactHref))} class="user-profile-page__button-link" data-v-6430419b> Contact </a>`);
+          } else {
+            _push(`<!---->`);
+          }
+          _push(`</div>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`<div class="surface-card" data-v-6430419b><h2 data-v-6430419b>Wishlists</h2>`);
+      if (unref(profileWishlists).length) {
+        _push(`<div class="user-profile-page__wishlist-list" data-v-6430419b><!--[-->`);
+        ssrRenderList(unref(profileWishlists), (wishlist) => {
+          _push(`<article class="user-profile-page__wishlist-card" data-v-6430419b><div class="user-profile-page__wishlist-copy" data-v-6430419b><strong class="user-profile-page__wishlist-title" data-v-6430419b>`);
+          if (getWishlistTitleParts(wishlist.title).cover) {
+            _push(`<span class="user-profile-page__wishlist-emoji" data-v-6430419b>${ssrInterpolate(getWishlistTitleParts(wishlist.title).cover)}</span>`);
+          } else {
+            _push(`<!---->`);
+          }
+          _push(`<span data-v-6430419b>${ssrInterpolate(getWishlistTitleParts(wishlist.title).text || wishlist.title)}</span></strong><p data-v-6430419b>${ssrInterpolate(wishlist.description || "No description yet.")}</p><p data-v-6430419b>Visibility: ${ssrInterpolate(unref(formatWishlistVisibility)(wishlist.visibility))}</p><p data-v-6430419b>Join mode: ${ssrInterpolate(unref(formatParticipantJoinMode)(wishlist.participantJoinMode))}</p><p data-v-6430419b>${ssrInterpolate(wishlistAccessLabel(wishlist))}</p></div><div class="user-profile-page__wishlist-actions" data-v-6430419b>`);
+          _push(ssrRenderComponent(_component_NuxtLink, {
+            to: `/wishlists/${wishlist.id}`,
+            class: "user-profile-page__button-link"
+          }, {
+            default: withCtx((_, _push2, _parent2, _scopeId) => {
+              if (_push2) {
+                _push2(`${ssrInterpolate(canOpenWishlist(wishlist.id) ? "Open wishlist" : "View wishlist")}`);
+              } else {
+                return [
+                  createTextVNode(toDisplayString(canOpenWishlist(wishlist.id) ? "Open wishlist" : "View wishlist"), 1)
+                ];
+              }
+            }),
+            _: 2
+          }, _parent));
+          if (!unref(isOwnProfile) && (!getWishlistParticipation(wishlist.id) || getWishlistParticipation(wishlist.id)?.status === "rejected" || getWishlistParticipation(wishlist.id)?.status === "invited")) {
+            _push(`<button type="button" data-v-6430419b>${ssrInterpolate(wishlistActionLabel(wishlist))}</button>`);
+          } else {
+            _push(`<!---->`);
+          }
+          if (!unref(isOwnProfile) && getWishlistParticipation(wishlist.id)?.status === "invited") {
+            _push(`<button type="button" data-v-6430419b> Reject invitation </button>`);
+          } else {
+            _push(`<!---->`);
+          }
+          _push(`</div></article>`);
+        });
+        _push(`<!--]--></div>`);
+      } else {
+        _push(`<p data-v-6430419b> No visible wishlists found for this user. </p>`);
+      }
+      _push(`</div>`);
+      if (unref(statusMessage)) {
+        _push(`<p data-v-6430419b>${ssrInterpolate(unref(statusMessage))}</p>`);
+      } else {
+        _push(`<!---->`);
+      }
+      if (unref(showProfileModal)) {
+        _push(`<div class="user-profile-page__modal-backdrop" data-v-6430419b><div class="surface-card user-profile-page__modal" data-v-6430419b><h2 data-v-6430419b>Complete profile first</h2><p data-v-6430419b>Please fill in your profile before following other users.</p><img${ssrRenderAttr("src", unref(modalAvatarPreview))} alt="Profile avatar preview" class="user-profile-page__modal-avatar" data-v-6430419b><div data-v-6430419b><label for="follow-profile-email" data-v-6430419b>Email</label><input id="follow-profile-email"${ssrRenderAttr("value", unref(email))} type="email" readonly data-v-6430419b></div><div data-v-6430419b><label for="follow-profile-full-name" data-v-6430419b>Full name</label><input id="follow-profile-full-name"${ssrRenderAttr("value", unref(fullName))} type="text" placeholder="Enter your full name" data-v-6430419b></div><div data-v-6430419b><label for="follow-profile-username" data-v-6430419b>Username</label><input id="follow-profile-username"${ssrRenderAttr("value", unref(username))} type="text" placeholder="Enter a username" data-v-6430419b></div><div data-v-6430419b><label for="follow-profile-birth-date" data-v-6430419b>Date of birth</label><input id="follow-profile-birth-date"${ssrRenderAttr("value", unref(birthDate))} type="date" data-v-6430419b></div><fieldset class="user-profile-page__modal-avatar-picker" data-v-6430419b><legend data-v-6430419b>Choose avatar</legend><label class="user-profile-page__modal-upload" data-v-6430419b><span data-v-6430419b>Upload your photo</span><input type="file" accept="image/*" data-v-6430419b></label><div class="user-profile-page__modal-avatar-options" data-v-6430419b><!--[-->`);
+        ssrRenderList(avatarOptions, (option) => {
+          _push(`<label class="user-profile-page__modal-avatar-option" data-v-6430419b><input${ssrIncludeBooleanAttr(ssrLooseEqual(unref(avatarUrl), option.image)) ? " checked" : ""} type="radio" name="follow-profile-avatar"${ssrRenderAttr("value", option.image)} data-v-6430419b><img${ssrRenderAttr("src", option.image)}${ssrRenderAttr("alt", option.label)} class="user-profile-page__modal-avatar-option-image" data-v-6430419b><span data-v-6430419b>${ssrInterpolate(option.label)}</span></label>`);
+        });
+        _push(`<!--]--></div></fieldset><button type="button" data-v-6430419b> Save profile </button><button type="button" data-v-6430419b> Close </button>`);
+        if (unref(profileStatusMessage)) {
+          _push(`<p data-v-6430419b>${ssrInterpolate(unref(profileStatusMessage))}</p>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</section>`);
+    };
+  }
+});
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/friends/[username].vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const _username_ = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-6430419b"]]);
+
+export { _username_ as default };
+//# sourceMappingURL=_username_-CKYF1XDu.mjs.map

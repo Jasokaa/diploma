@@ -1,0 +1,5 @@
+# This file defines a simple public robots policy for the project.
+# It can be replaced later with production SEO rules when deployment requirements are defined.
+
+User-agent: *
+Allow: /

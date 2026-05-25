@@ -1,0 +1,8 @@
+const create_vue_vue_type_style_index_0_scoped_c2290f43_lang = ".wishlist-create[data-v-c2290f43]{padding-top:1rem}.wishlist-create__layout[data-v-c2290f43]{display:grid;gap:1rem;margin:0 auto;width:min(100%,74rem)}.wishlist-create__hero[data-v-c2290f43]{align-items:end;background:radial-gradient(circle at top right,rgba(220,255,130,.65),transparent 28%),linear-gradient(180deg,#fffffffa,#fffdf7f0);border-radius:2rem;display:flex;gap:1rem;justify-content:space-between;padding:1.7rem 1.85rem}.wishlist-create__hero-copy[data-v-c2290f43]{display:grid;gap:.45rem;max-width:41rem}.wishlist-create__hero-copy h1[data-v-c2290f43]{font-size:clamp(2.5rem,4vw,3.6rem);line-height:.9}.wishlist-create__hero-copy p[data-v-c2290f43]{max-width:31rem}.wishlist-create__back-link[data-v-c2290f43]{flex-shrink:0}.wishlist-create__hero-pills[data-v-c2290f43]{display:flex;flex-wrap:wrap;gap:.7rem;margin-top:.55rem}.wishlist-create__hero-pill[data-v-c2290f43]{align-items:center;background:#ffffffe6;border:1px solid hsla(0,0%,85.5%,.9);border-radius:999px;color:#43523e;display:inline-flex;font-size:.82rem;font-weight:600;min-height:2.15rem;padding:.68rem .92rem}.wishlist-create__notice[data-v-c2290f43]{display:grid;gap:.9rem;justify-items:start;padding:1.5rem}.wishlist-create__status[data-v-c2290f43]{color:var(--danger);font-size:.95rem;font-weight:500;padding:0 .25rem}@media(max-width:720px){.wishlist-create__hero[data-v-c2290f43]{align-items:start;flex-direction:column;padding:1.35rem}}";
+
+const createStyles_CQxODqIy = [
+  create_vue_vue_type_style_index_0_scoped_c2290f43_lang
+];
+
+export { createStyles_CQxODqIy as default };
+//# sourceMappingURL=create-styles.CQxODqIy.mjs.map

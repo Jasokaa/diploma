@@ -1,0 +1,4 @@
+{
+  "//": "This file configures TypeScript for the Nuxt project. Nuxt will generate most of the detailed typing later.",
+  "extends": "./.nuxt/tsconfig.json"
+}

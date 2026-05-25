@@ -1,0 +1,18 @@
+// This file defines the main Nuxt configuration.
+// More runtime config, modules, and app settings can be added later when features are implemented.
+export default defineNuxtConfig({
+  compatibilityDate: '2025-01-01',
+  devtools: { enabled: true },
+  css: ['~/assets/css/main.css'],
+  typescript: {
+    strict: true,
+    typeCheck: false
+  },
+  runtimeConfig: {
+    supabaseServiceRoleKey: process.env.SUPABASE_SERVICE_ROLE_KEY,
+    public: {
+      supabaseUrl: process.env.NUXT_PUBLIC_SUPABASE_URL,
+      supabaseAnonKey: process.env.NUXT_PUBLIC_SUPABASE_ANON_KEY
+    }
+  }
+})

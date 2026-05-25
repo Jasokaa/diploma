@@ -1,0 +1,1 @@
+import{e as a}from"./BVmmuN-c.js";const c=()=>{const{$supabase:t}=a();return{signUp:async(s,n)=>await t.auth.signUp({email:s,password:n}),signIn:async(s,n)=>await t.auth.signInWithPassword({email:s,password:n}),signOut:async()=>await t.auth.signOut(),getUser:async()=>{const{data:s}=await t.auth.getUser();return s.user}}};export{c as u};

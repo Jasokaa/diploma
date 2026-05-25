@@ -1,0 +1,20 @@
+{
+  "//": "This file defines the project scripts and dependencies. It should be updated later as the application grows.",
+  "name": "holiday-wishlist-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "preview": "nuxt preview",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "nuxt": "^4.0.0",
+    "vue": "^3.5.13"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}

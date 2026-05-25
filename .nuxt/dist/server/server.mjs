@@ -1,0 +1,1 @@
+export { default } from "file:///Users/anna/Documents/NAU/8%20sem/diploma/program%20code/node_modules/@nuxt/vite-builder/dist/vite-node-entry.mjs"

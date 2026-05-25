@@ -1,0 +1,1 @@
+import{L as o,M as i,N as u,D as c,O as r}from"./BVmmuN-c.js";const p=o(async()=>{let e,s;const a=r(),t=i(a.public.supabaseUrl,a.public.supabaseAnonKey),{data:n}=([e,s]=u(()=>t.auth.getSession()),e=await e,s(),e);if(!n.session)return c("/login")});export{p as default};

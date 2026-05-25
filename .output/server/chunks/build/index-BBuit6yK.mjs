@@ -1,0 +1,120 @@
+import { _ as __nuxt_component_0 } from './nuxt-link-B1pdB3FY.mjs';
+import { defineComponent, ref, computed, mergeProps, unref, withCtx, createTextVNode, useSSRContext } from 'vue';
+import { ssrRenderAttrs, ssrRenderAttr, ssrInterpolate, ssrRenderComponent, ssrRenderList, ssrIncludeBooleanAttr, ssrLooseEqual } from 'vue/server-renderer';
+import { p as publicAssetsURL } from '../routes/renderer.mjs';
+import { _ as _export_sfc, a as useRouter } from './server.mjs';
+import { u as useAuth } from './useAuth-D55glZy3.mjs';
+import { u as useProfile } from './useProfile-DiW2onUU.mjs';
+import '../nitro/nitro.mjs';
+import 'node:http';
+import 'node:https';
+import 'node:events';
+import 'node:buffer';
+import 'node:fs';
+import 'node:path';
+import 'node:crypto';
+import 'node:url';
+import 'vue-bundle-renderer/runtime';
+import 'unhead/server';
+import 'devalue';
+import 'unhead/utils';
+import 'vue-router';
+import './state-DQnwRar-.mjs';
+
+const _imports_0 = publicAssetsURL("/images/design/logo-max.svg");
+const defaultProfileAvatar = "/images/avatars/avatar-standart.png";
+const _sfc_main = /* @__PURE__ */ defineComponent({
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    useRouter();
+    const avatarOptions = [
+      { id: "avatar-1", label: "Avatar 1", image: "/images/avatars/avatar-1.png" },
+      { id: "avatar-2", label: "Avatar 2", image: "/images/avatars/avatar-2.png" },
+      { id: "avatar-3", label: "Avatar 3", image: "/images/avatars/avatar-3.png" },
+      { id: "avatar-4", label: "Avatar 4", image: "/images/avatars/avatar-4.png" },
+      { id: "avatar-5", label: "Avatar 5", image: "/images/avatars/avatar-5.png" },
+      { id: "avatar-6", label: "Avatar 6", image: "/images/avatars/avatar-6.png" },
+      { id: "avatar-7", label: "Avatar 7", image: "/images/avatars/avatar-7.png" },
+      { id: "avatar-8", label: "Avatar 8", image: "/images/avatars/avatar-8.png" }
+    ];
+    const hasProfile = ref(false);
+    const homeMessage = ref("Loading your workspace...");
+    const showProfileModal = ref(false);
+    const profileStatusMessage = ref("");
+    const email = ref("");
+    const fullName = ref("");
+    const username = ref("");
+    const birthDate = ref("");
+    const avatarUrl = ref("");
+    useAuth();
+    useProfile();
+    const avatarPreview = computed(() => {
+      return avatarUrl.value || defaultProfileAvatar;
+    });
+    const primaryActionLabel = computed(() => {
+      return hasProfile.value ? "Create wishlist" : "Complete profile to continue";
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_NuxtLink = __nuxt_component_0;
+      _push(`<section${ssrRenderAttrs(mergeProps({ class: "page-section" }, _attrs))} data-v-233c0c27><div class="surface-card home-page__hero" data-v-233c0c27><img${ssrRenderAttr("src", _imports_0)} alt="" aria-hidden="true" class="home-page__hero-brand-mark" data-v-233c0c27><div class="home-page__hero-content" data-v-233c0c27><div class="home-page__hero-copy" data-v-233c0c27><span class="eyebrow" data-v-233c0c27>gifttt</span><p class="home-page__kicker" data-v-233c0c27>from you &amp; to you</p><h1 data-v-233c0c27>Wishlists for the moments that matter.</h1><p class="home-page__description" data-v-233c0c27> Plan birthdays, holidays, shared presents, and little surprises in one personal place. Keep the mood light, the access controlled, and the gift choices beautifully organized. </p><p class="home-page__status" data-v-233c0c27>${ssrInterpolate(unref(homeMessage))}</p><div class="home-page__actions" data-v-233c0c27><button type="button" class="home-page__primary-button" data-v-233c0c27>${ssrInterpolate(unref(primaryActionLabel))}</button>`);
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/wishlists",
+        class: "button-secondary home-page__secondary-link"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` Open my wishlists `);
+          } else {
+            return [
+              createTextVNode(" Open my wishlists ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(ssrRenderComponent(_component_NuxtLink, {
+        to: "/friends",
+        class: "button-ghost home-page__ghost-link"
+      }, {
+        default: withCtx((_, _push2, _parent2, _scopeId) => {
+          if (_push2) {
+            _push2(` Friends `);
+          } else {
+            return [
+              createTextVNode(" Friends ")
+            ];
+          }
+        }),
+        _: 1
+      }, _parent));
+      _push(`</div><div class="home-page__feature-row" data-v-233c0c27><span class="home-page__feature-pill" data-v-233c0c27>Private or shared lists</span><span class="home-page__feature-pill" data-v-233c0c27>Gift reservations</span><span class="home-page__feature-pill" data-v-233c0c27>Secret Santa</span></div></div><div class="home-page__hero-side" data-v-233c0c27><span class="home-page__hero-note-label" data-v-233c0c27>Why it works</span><div class="home-page__hero-side-list" data-v-233c0c27><article class="home-page__side-card" data-v-233c0c27><p class="home-page__side-number" data-v-233c0c27>01</p><h2 data-v-233c0c27>Create your space</h2><p data-v-233c0c27>Build a wishlist that feels personal, polished, and easy to revisit for every occasion.</p></article><article class="home-page__side-card" data-v-233c0c27><p class="home-page__side-number" data-v-233c0c27>02</p><h2 data-v-233c0c27>Invite the right people</h2><p data-v-233c0c27>Control who can join, who can browse, and how each list is shared without awkward overlap.</p></article><article class="home-page__side-card" data-v-233c0c27><p class="home-page__side-number" data-v-233c0c27>03</p><h2 data-v-233c0c27>Coordinate gifts calmly</h2><p data-v-233c0c27>Reserve gifts, split the cost, and keep everyone aligned before duplicate surprises happen.</p></article></div></div></div></div>`);
+      if (unref(showProfileModal)) {
+        _push(`<div class="home-modal-backdrop" data-v-233c0c27><div class="surface-card home-modal" data-v-233c0c27><h2 data-v-233c0c27>Complete profile first</h2><p data-v-233c0c27>Please fill in your profile first.</p><img${ssrRenderAttr("src", unref(avatarPreview))} alt="Profile avatar preview" class="home-modal__avatar" data-v-233c0c27><div data-v-233c0c27><label for="home-profile-email" data-v-233c0c27>Email</label><input id="home-profile-email"${ssrRenderAttr("value", unref(email))} type="email" readonly data-v-233c0c27></div><div data-v-233c0c27><label for="home-profile-full-name" data-v-233c0c27>Full name</label><input id="home-profile-full-name"${ssrRenderAttr("value", unref(fullName))} type="text" placeholder="Enter your full name" data-v-233c0c27></div><div data-v-233c0c27><label for="home-profile-username" data-v-233c0c27>Username</label><input id="home-profile-username"${ssrRenderAttr("value", unref(username))} type="text" placeholder="Enter a username" data-v-233c0c27></div><div data-v-233c0c27><label for="home-profile-birth-date" data-v-233c0c27>Date of birth</label><input id="home-profile-birth-date"${ssrRenderAttr("value", unref(birthDate))} type="date" data-v-233c0c27></div><fieldset class="home-modal__avatar-picker" data-v-233c0c27><legend data-v-233c0c27>Choose avatar</legend><div class="home-modal__avatar-options" data-v-233c0c27><!--[-->`);
+        ssrRenderList(avatarOptions, (option) => {
+          _push(`<label class="home-modal__avatar-option" data-v-233c0c27><input${ssrIncludeBooleanAttr(ssrLooseEqual(unref(avatarUrl), option.image)) ? " checked" : ""} type="radio" name="home-profile-avatar"${ssrRenderAttr("value", option.image)} data-v-233c0c27><img${ssrRenderAttr("src", option.image)}${ssrRenderAttr("alt", option.label)} class="home-modal__avatar-option-image" data-v-233c0c27><span data-v-233c0c27>${ssrInterpolate(option.label)}</span></label>`);
+        });
+        _push(`<!--]--></div></fieldset><button type="button" data-v-233c0c27> Save profile and continue </button><button type="button" data-v-233c0c27> Close </button>`);
+        if (unref(profileStatusMessage)) {
+          _push(`<p data-v-233c0c27>${ssrInterpolate(unref(profileStatusMessage))}</p>`);
+        } else {
+          _push(`<!---->`);
+        }
+        _push(`</div></div>`);
+      } else {
+        _push(`<!---->`);
+      }
+      _push(`</section>`);
+    };
+  }
+});
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/index.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const index = /* @__PURE__ */ _export_sfc(_sfc_main, [["__scopeId", "data-v-233c0c27"]]);
+
+export { index as default };
+//# sourceMappingURL=index-BBuit6yK.mjs.map

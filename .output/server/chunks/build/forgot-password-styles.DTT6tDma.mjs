@@ -1,0 +1,8 @@
+const forgotPassword_vue_vue_type_style_index_0_scoped_60f3b2ae_lang = ".auth-page__layout[data-v-60f3b2ae]{margin:0 auto;width:min(100%,62rem)}.auth-page__layout--single[data-v-60f3b2ae]{width:min(100%,34rem)}.auth-page__form[data-v-60f3b2ae]{border-radius:2rem;display:grid;gap:1rem;padding:1.7rem}.auth-page__heading[data-v-60f3b2ae],.auth-page__inner-form[data-v-60f3b2ae]{display:grid;gap:.8rem}.auth-page__heading h1[data-v-60f3b2ae],.auth-page__heading p[data-v-60f3b2ae],.auth-page__helper[data-v-60f3b2ae],.auth-page__status[data-v-60f3b2ae]{margin:0}.auth-page__heading p[data-v-60f3b2ae],.auth-page__helper[data-v-60f3b2ae]{color:var(--muted)}.auth-page__field[data-v-60f3b2ae]{display:grid;gap:.45rem}.auth-page__back[data-v-60f3b2ae],.auth-page__submit[data-v-60f3b2ae]{width:100%}.auth-page__status[data-v-60f3b2ae]{color:var(--danger);font-size:.95rem}";
+
+const forgotPasswordStyles_DTT6tDma = [
+  forgotPassword_vue_vue_type_style_index_0_scoped_60f3b2ae_lang
+];
+
+export { forgotPasswordStyles_DTT6tDma as default };
+//# sourceMappingURL=forgot-password-styles.DTT6tDma.mjs.map

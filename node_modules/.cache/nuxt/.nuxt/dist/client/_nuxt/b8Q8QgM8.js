@@ -1,0 +1,1 @@
+import{_ as a,o as s,c as t,a as o,P as c}from"./BVmmuN-c.js";const n={},r={class:"auth-layout"},_={class:"auth-layout__panel surface-card"};function d(e,l){return s(),t("div",r,[o("div",_,[c(e.$slots,"default",{},void 0)])])}const u=a(n,[["render",d],["__scopeId","data-v-f4e32b8f"]]);export{u as default};
